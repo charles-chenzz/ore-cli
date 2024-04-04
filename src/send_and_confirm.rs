@@ -161,7 +161,7 @@ impl Miner {
                         }
 
                         // Retry confirm
-                        std::thread::sleep(Duration::from_millis(500));
+                        //std::thread::sleep(Duration::from_millis(500));
                         confirm_check += 1;
                         if confirm_check.gt(&CONFIRM_RETRIES) {
                             break 'confirm;
@@ -175,7 +175,7 @@ impl Miner {
             stdout.flush().ok();
 
             // Retry with new hash
-            std::thread::sleep(Duration::from_millis(1000));
+            //std::thread::sleep(Duration::from_millis(1000));
             (hash, slot) = client
                 .get_latest_blockhash_with_commitment(CommitmentConfig::confirmed())
                 .await
